@@ -1,0 +1,78 @@
+/* Pavel Silinskii Popup Builder — admin */
+
+/* Meta box rows */
+.pspb-meta-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.pspb-meta-row > label:first-child,
+.pspb-meta-row .pspb-meta-label {
+	min-width: 180px;
+	font-weight: 600;
+}
+
+.pspb-meta-row .description {
+	flex-basis: 100%;
+	margin: 0 0 0 192px;
+}
+
+/* Trigger radios */
+.pspb-trigger-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 20px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.pspb-trigger-options label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 400;
+}
+
+/* Color fields (before wpColorPicker takes over) */
+.pspb-color-field {
+	width: 100px;
+}
+
+/* Popup list page */
+.pspb-admin-table {
+	margin-top: 16px;
+}
+
+.pspb-admin-table .column-id {
+	width: 60px;
+}
+
+.pspb-impressions-count {
+	color: #2271b1;
+	font-weight: 600;
+}
+
+.pspb-disabled-badge {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 8px;
+	border-radius: 10px;
+	background: #f0f0f1;
+	color: #646970;
+	font-size: 12px;
+}
+
+@media screen and (max-width: 782px) {
+	.pspb-meta-row > label:first-child,
+	.pspb-meta-row .pspb-meta-label {
+		min-width: 100%;
+	}
+
+	.pspb-meta-row .description {
+		margin-left: 0;
+	}
+}

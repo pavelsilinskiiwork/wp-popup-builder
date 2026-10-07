@@ -1,0 +1,122 @@
+/* Pavel Silinskii Popup Builder — frontend */
+
+/* Overlay */
+.pspb-overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 99998;
+	animation: pspbFade 0.3s ease;
+}
+
+.pspb-overlay.pspb-active {
+	display: block;
+}
+
+.pspb-overlay[data-pspb-dismiss] {
+	cursor: pointer;
+}
+
+/* Popup wrapper */
+.pspb-popup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99999;
+	max-width: 90vw;
+	max-height: 90vh;
+	overflow-y: auto;
+	border-radius: 8px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	padding: 32px;
+	box-sizing: border-box;
+}
+
+.pspb-popup.pspb-active {
+	display: block;
+}
+
+.pspb-popup:focus {
+	outline: none;
+}
+
+/* Content */
+.pspb-content {
+	line-height: 1.6;
+}
+
+.pspb-content > :first-child {
+	margin-top: 0;
+}
+
+.pspb-content > :last-child {
+	margin-bottom: 0;
+}
+
+/* Buttons pick up the per-popup "Button color" setting. */
+.pspb-content .wp-block-button__link,
+.pspb-content button,
+.pspb-content input[type="submit"],
+.pspb-content .button {
+	background-color: var(--pspb-button-color, #2271b1);
+	border-color: var(--pspb-button-color, #2271b1);
+	color: #fff;
+}
+
+/* Close button */
+.pspb-close {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	padding: 0;
+	background: none;
+	border: none;
+	font-size: 20px;
+	line-height: 1;
+	color: inherit;
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.pspb-close:hover,
+.pspb-close:focus-visible {
+	opacity: 1;
+}
+
+/* Animations — they replay whenever the popup goes from display:none to block. */
+.pspb-anim-fade.pspb-active {
+	animation: pspbFade 0.3s ease;
+}
+
+.pspb-anim-slide.pspb-active {
+	animation: pspbSlide 0.3s ease;
+}
+
+.pspb-anim-zoom.pspb-active {
+	animation: pspbZoom 0.3s ease;
+}
+
+@keyframes pspbFade {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+@keyframes pspbSlide {
+	from { opacity: 0; transform: translate(-50%, calc(-50% + 30px)); }
+	to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes pspbZoom {
+	from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+	to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pspb-overlay,
+	.pspb-popup.pspb-active {
+		animation: none;
+	}
+}
